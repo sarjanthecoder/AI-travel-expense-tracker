@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Travel Expense Planner</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="main-layout">
+    <!-- Travel Input Form -->
+    <div class="travel-container">
+      <h1>🌍 Travel Expense Planner</h1>
+      <form id="travel-form">
+        <input type="text" placeholder="From (e.g. Delhi)" name="from" required>
+        <input type="text" placeholder="To Destination (e.g. London)" name="to" required>
+        <input type="number" placeholder="No. of Days Staying" name="days" required>
+        
+        <select name="explore_level" required>
+          <option value="">Exploration Type</option>
+          <option value="basic">Basic</option>
+          <option value="moderate">Moderate</option>
+          <option value="luxury">Luxury</option>
+        </select>
+        
+        <input type="number" placeholder="No. of People" name="people" required>
+
+        <label style="color:white; display:flex; align-items:center; gap:5px;">
+          <input type="checkbox" id="returnFlight" name="returnFlight" checked>
+          Include Return Flight
+        </label>
+
+        <button type="button" onclick="triggerFlightAndEstimate()">✈️ Analyze Expense</button>
+      </form>
+    </div>
+
+    <!-- Output Box -->
+    <div id="output-box">
+      <div id="result">Enter details and click "Analyze Expense" to view estimate</div>
+    </div>
+  </div>
+
+  <audio id="flySound" src="https://www.fesliyanstudios.com/play-mp3/387" preload="auto"></audio>
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
